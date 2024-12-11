@@ -1,0 +1,10 @@
+/* mengambil data tamu yang metode pembayaran lewat KREDIT*/
+
+CREATE VIEW ViewPembayaranlewatMetodeKREDIT AS
+SELECT T.Nama AS Tamu, M.MetodePembayaran FROM Tamu AS T
+INNER JOIN Pemesanan AS P ON T.TamuID = P.TamuID
+INNER JOIN Pembayaran AS PB ON PB.PembayaranID = P.PemesananID
+INNER JOIN [Metode Pembayaran] AS M ON M.MetodeID = PB.MetodeID
+WHERE [MetodePembayaran] = 'KREDIT';
+
+SELECT * FROM ViewPembayaranlewatMetodeKREDIT
